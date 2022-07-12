@@ -43,7 +43,7 @@ module MailersendRails
         return msg.text.part
       end
 
-      if msg.mime_type ~= /^text\/plain$/i
+      if msg.mime_type =~ /^text\/plain$/i
         return msg
       end
 
@@ -58,7 +58,7 @@ module MailersendRails
         return msg.html.part
       end
 
-      if msg.mime_type ~= /^text\/html$/i
+      if msg.mime_type =~ /^text\/html$/i
         return msg
       end
 
