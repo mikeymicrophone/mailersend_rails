@@ -1,0 +1,2 @@
+require 'mailer'
+require 'railtie'
