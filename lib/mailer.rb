@@ -10,7 +10,7 @@ module MailersendRails
     # Sends the email and returns result
     def deliver(msg)
       ms_msg = msg_to_ms_msg(msg)
-      ms_msg.send
+      # ms_msg.send
     end
 
     # Sends the email and raises error if it occurs
@@ -30,7 +30,8 @@ module MailersendRails
       ms_msg = Mailersend::Email.new
       ms_msg.add_subject(msg.subject)
       ms_msg.recipients = msg.to.map { |email| {email: email, name: email}}
-      ms_msg.add_from(msg.from[0])
+      ms_msg.add_from(name: msg.from_address.display_name,
+                      email: msg.from_address.address)
       ms_msg.add_html(msg_html(msg))
       ms_msg.add_text(msg_text(msg))
       ms_msg.ccs = msg.cc
