@@ -10,7 +10,7 @@ module MailersendRails
     # Sends the email and returns result
     def deliver(msg)
       ms_msg = msg_to_ms_msg(msg)
-      # ms_msg.send
+      ms_msg.send
     end
 
     # Sends the email and raises error if it occurs
