@@ -12,6 +12,7 @@ require 'rails'
 require 'action_mailer'
 
 ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.delivery_method = :mailersend
 
 class TestMailer < ActionMailer::Base
   default from: 'test@example.com'
