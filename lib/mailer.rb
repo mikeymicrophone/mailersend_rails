@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'railtie'
+
 module MailersendRails
   class Mailer
     def initialize(config)
@@ -29,7 +31,7 @@ module MailersendRails
       ms_msg = Mailersend::Email.new
       ms_msg.add_subject(msg.subject)
       ms_msg.recipients = msg.to
-      ms_msg.add_from = msg.from[0]
+      ms_msg.add_from(msg.from[0])
       ms_msg.add_html(msg_html(msg))
       ms_msg.add_text(msg_text(msg))
       ms_msg.ccs = msg.cc
