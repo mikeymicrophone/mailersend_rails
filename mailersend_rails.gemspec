@@ -1,13 +1,11 @@
 Gem::Specification.new do |s|
   s.name        = "mailersend_rails"
-  s.version     = "0.0.0"
+  s.version     = "0.0.1"
   s.summary     = "Unofficial MailerSend integration with Rails"
-  s.description = "A simple hello world gem"
   s.authors     = ["unmanbearpig"]
   s.email       = "me@unmb.pw"
   s.files       = ["lib/mailersend_rails.rb"]
-  # s.homepage    =
-  #   "https://rubygems.org/gems/hola"
+  s.homepage    = "https://github.com/unmanbearpig/mailersend_rails"
   s.license       = "MIT"
 
   s.add_dependency 'mailersend-ruby'
