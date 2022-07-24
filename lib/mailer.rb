@@ -29,13 +29,13 @@ module MailersendRails
     def msg_to_ms_msg(msg)
       ms_msg = Mailersend::Email.new
       ms_msg.add_subject(msg.subject)
-      ms_msg.recipients = msg.to.map { |email| {email: email, name: email}}
+      ms_msg.recipients = msg.to.map { |email| { email: email, name: email }}
       ms_msg.add_from(name: msg.from_address.display_name,
                       email: msg.from_address.address)
       ms_msg.add_html(msg_html(msg))
       ms_msg.add_text(msg_text(msg))
-      ms_msg.ccs = msg.cc
-      ms_msg.bcc = msg.bcc
+      ms_msg.ccs = msg.cc.map { |email| { email: email, name: email }}
+      ms_msg.bcc = msg.bcc.map { |email| { email: email, name: email }}
 
       if ms_msg.text.nil? && ms_msg.html.nil?
         Rails.logger.warn("Trying to send a message \
