@@ -34,8 +34,8 @@ module MailersendRails
                       email: msg.from_address.address)
       ms_msg.add_html(msg_html(msg))
       ms_msg.add_text(msg_text(msg))
-      ms_msg.ccs = msg.cc.map { |email| { email: email, name: email }}
-      ms_msg.bcc = msg.bcc.map { |email| { email: email, name: email }}
+      ms_msg.ccs = msg.cc&.map { |email| { email: email, name: email }}
+      ms_msg.bcc = msg.bcc&.map { |email| { email: email, name: email }}
 
       if ms_msg.text.nil? && ms_msg.html.nil?
         Rails.logger.warn("Trying to send a message \
