@@ -3,9 +3,6 @@ module MailersendRails
   class RailsMsgToMsMsg
     # Transforms Rails email message to Mailersend::Email
     def self.msg_to_ms_msg(msg)
-      require 'pry'
-      binding.pry
-
       ms_msg = Mailersend::Email.new
       ms_msg.add_subject(msg.subject)
       ms_msg.recipients = msg.to_addresses
@@ -35,8 +32,6 @@ module MailersendRails
         Rails.logger.warn("Trying to send a message \
                           without plaintext and html: #{msg}")
       end
-
-      binding.pry
 
       ms_msg
     end
