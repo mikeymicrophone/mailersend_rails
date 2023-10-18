@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.summary     = "Unofficial MailerSend integration with Rails"
   s.authors     = ["unmanbearpig"]
   s.email       = "me@unmb.pw"
-  s.files       = ["lib/mailersend_rails.rb"]
+  s.files       = ["lib/mailersend_rails.rb", "lib/mailer.rb", 'lib/rails_msg_to_ms_msg.rb', 'lib/railtie.rb']
   s.homepage    = "https://github.com/unmanbearpig/mailersend_rails"
   s.license       = "MIT"
 
